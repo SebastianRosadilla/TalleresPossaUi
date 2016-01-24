@@ -1,0 +1,41 @@
+{
+  "name": "tallerespossaui",
+  "version": "2.0.0",
+  "description": "New frontend design",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastianRosadilla/TalleresPossaUi.git"
+  },
+  "author": "Alfredo Sebastian Rosadilla Ribeiro",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/SebastianRosadilla/TalleresPossaUi/issues"
+  },
+  "homepage": "https://github.com/SebastianRosadilla/TalleresPossaUi#readme",
+  "devDependencies": {
+    "angular": "^1.4.9",
+    "angular-extend-promises": "^1.0.0-rc.3",
+    "angular-resource": "^1.4.9",
+    "angular-ui-router": "^0.2.15",
+    "bootstrap": "^3.3.6",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-minify": "0.0.5",
+    "gulp-sass": "^2.1.1",
+    "jasmine-core": "^2.4.1",
+    "jquery-ui": "^1.10.5",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-cli": "^0.1.2",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-requirejs": "^0.2.3",
+    "node-sass": "^3.4.2",
+    "requirejs": "^2.1.22"
+  }
+}
