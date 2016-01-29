@@ -1,0 +1,48 @@
+Last login: Wed Jul  8 16:53:54 on ttys000
+ilianas-mbp:~ iliana$ sudo nano /private/etc/hosts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  GNU nano 2.0.6           File: /private/etc/hosts                   Modified  
+
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1       localhost
+255.255.255.255 broadcasthost
+::1             localhost
+
+
+127.0.0.1       youtube.com
+#127.0.0.1      www.facebook.com
+127.0.0.1       facebook.com
+#127.0.0.1      www.elpais.com.uy
+127.0.0.1       elpais.com.uy
+127.0.0.1       cuevana2.tv
+
+::1     youtube.com
+                               [ Read 24 lines ]
+^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Page ^K Cut Text  ^C Cur Pos
+^X Exit      ^J Justify   ^W Where Is  ^V Next Page ^U UnCut Text^T To Spell
