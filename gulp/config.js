@@ -16,18 +16,37 @@ export default {
   },
 
   scripts: {
-    src: 'app/js/**/*.js',
+    src: ['app/js/TS_main.js'],
     dest: 'build/js'
   },
 
+  TS: {
+    src: [
+      'app/js/**/*.ts',
+      'app/js/**/**/*.ts'
+    ],
+    dest: 'build/js'
+  },
+
+  dependencies: {
+    src: [
+      'node_modules/jquery/dist/jquery.min.js',
+      'externalJS/*.js',
+      'node_modules/angular*/*.min.js',
+      'node_modules/angular*/**/*.min.js'
+    ],
+    dest: 'build/dependencies',
+    name: 'main.js'
+  },
+
   images: {
-    src: 'app/images/**/*',
-    dest: 'build/images'
+    src: 'app/img/**/*',
+    dest: 'build/img'
   },
 
   fonts: {
     src: ['app/fonts/**/*'],
-    dest: 'build/fonts'
+    dest: 'build/css/fonts'
   },
 
   assetExtensions: [
@@ -46,8 +65,11 @@ export default {
 
   views: {
     index: 'app/index.html',
-    src: 'app/views/**/*.html',
-    dest: 'app/js'
+    src: [
+      'app/views/**/*.html',
+      'app/views/*.html'
+    ],
+    dest: 'build/views'
   },
 
   gzip: {
