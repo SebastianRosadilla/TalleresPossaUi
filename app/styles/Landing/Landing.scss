@@ -1,1 +1,123 @@
 @import 'depen.scss';
+
+// Parent container
+.landing {
+	@include init();
+	font-family: $roboto;
+	font-size: 1.15em;
+
+	* {
+		@include init();
+	}
+
+	h1 {
+		font-size: 1.3em;
+		font-family: "Roboto Slab";
+		display: inline-block;
+	}
+
+	@include media($desktop) {
+		h1 {
+			font-size: 1.6em;
+		}
+	}
+
+	header {
+		display: block;
+		background-color: $primary-color;
+		padding: .8em 1em;
+	}
+
+	a {
+		color: $white;
+		text-decoration: none;
+		display: inline-block;
+	}
+
+	nav {
+		display: inline-block;
+		float: right;
+	
+		ul {
+			display: block;
+	
+			li {
+				list-style-type: none;
+				display: inline-block; 
+				padding: .2em .1em;
+
+				a.conocenos {
+					height: 6px;
+					border-top: 3px solid $white;
+					border-bottom: 3px solid $white;
+					&:before{
+						content: "";
+						position: absolute;
+						right: 20px;
+						top: 1.2em;
+						width: 1.3em;
+						height: 0.19em;
+						background:$white;
+						box-shadow: 
+						    0 0.4em 0 0 $white,
+						    0 0.8em 0 0 $white;
+					}
+				}
+				a.trabajos {
+					&:before {
+						content: "";
+					}
+				}
+
+				a.contacto {
+					&:before {
+						content: "";
+					}
+				}
+
+				// FIXME
+				@include media($desktop) {
+					.conocenos:before {
+						content: "Conocenos";
+					}
+
+					a.trabajos {
+						&:before {
+							content: "Trabajos";
+						}
+					}
+
+					a.contacto {
+						&:before {
+							content: "Contactanos";
+						}
+					}
+				}
+			}
+		}
+	}
+	#slider {
+		padding: 2.5em 1em;
+		.one-half{
+			width: 100%;
+		}
+		@include media($desktop) {
+			.one-half {
+				width: 50%;
+				display: inline-block;
+			}
+			.right {
+				width: 28%;
+				display: inline-block;
+				float: right;
+				p {
+					line-height: 1.8em;
+					font-weight: 300;
+				}
+			}
+		}
+	}
+	img{
+		width: 100%;
+	}
+}
