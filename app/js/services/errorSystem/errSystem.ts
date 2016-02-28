@@ -12,49 +12,34 @@ module errSys {
     private _defErrs() {
       ErrSys.ERR_LIST = [
 
-        // User Login UI errors
+        // Form errs
         new Err(
           1001,
-          'Fail Login UserName',
-          'FaiLogUsr',
-          'Incorrect format for Login UserName or email',
-          '-min 8 char\n'
+          'Fail Form Name',
+          'FaiForNam',
+          'Nombre invalido',
+          '-min 4 letras'
         ),
         new Err(
           1002,
-          'Fail Login Password',
-          'FaiLogPas',
-          'Incorrect format for Login Password',
-          '-min 8 char'
+          'Fail Form Email',
+          'FaiForEma',
+          'Email invalido',
+          'Verifique su direccion de email'
         ),
         new Err(
           1003,
-          'User Disable',
-          'UsrDis',
-          'User in use',
-          '-Try other user'
-        ),
-        // User Register UI errors
-        new Err(
-          1101,
-          'Fail Register UserName',
-          'FaiRegUsr',
-          'Incorrect format for Register UserName',
-          '-min 8 char'
+          'Fail Form Subject',
+          'FaiForSub',
+          'Asunto de mensaje invalido',
+          '-min 10 letras'
         ),
         new Err(
-          1102,
-          'Fail Register Password',
-          'FaiRegPas',
-          'Incorrect format for Register Password',
-          '-min 8 char\n-1 special char\n-1 upper char'
-        ),
-        new Err(
-          1103,
-          'Incorrect Password match',
-          'IncPasMat',
-          'Password and Reply Password not match',
-          '-Verify the Password and Reply Password'
+          1004,
+          'Fail Form Description',
+          'FaiForDes',
+          'Descripcion de mensaje invalida',
+          '-min 30 letras'
         ),
         // Connection
         new Err(

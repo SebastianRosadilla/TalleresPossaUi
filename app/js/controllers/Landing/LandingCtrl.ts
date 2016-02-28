@@ -15,26 +15,104 @@ module app {
 		// it is better to have it close to the constructor, because the parameters must match in count and type.
 		// See http://docs.angularjs.org/guide/di
 		public static $inject = [
-			'$http'
+			'$http',
+			'SystErrs'
 		];
 
-		private static $HTTP: ng.IHttpService;
+		private static _$HTTP: ng.IHttpService;
+		private static _SYS_ERRS: errSys.IErrSys;
+		private static _VAL: Validation.IValidation;
+
+		// Form variables
+		public name: string = '';
+		public email: string = '';
+		public subject: string = '';
+		public description: string = '';
+
+		// Form error description
+		public err: string = '';
+		public errDes: string = '';
+
 		// dependencies are injected via AngularJS $injector
 		// controller's name is registered in Application.ts and specified from ng-controller attribute in index.html
 		constructor(
-			$http: ng.IHttpService
+			$http: ng.IHttpService,
+			SystErrs: errSys.IErrSys
 		) {
-				LandingCtrl.$HTTP = $http;
+				LandingCtrl._$HTTP = $http;
+				LandingCtrl._SYS_ERRS = SystErrs;
+				LandingCtrl._VAL = new Validation.Validation();
+
 	      this.initJQ();
 		}
 
-		private initJQ(): void {
+		private _initJQ(): void {
 			// Register effect
-			$(document).ready(() => {});
+			$(document).ready(() => {
+
+			});
+		}
+
+		private checkInfo(): number {
+			var err: number = 0,
+					iter: number = 0,
+					namMinLeng: number = 4,
+					subMinLeng: number = 10,
+					desMinLeng: number = 30,
+					valData: boolean[] = [
+						false,
+						false,
+						false,
+						false
+					],
+					errs: string[] = [
+						'FaiForNam',
+						'FaiForEma',
+						'FaiForSub',
+						'FaiForDes'
+					];
+
+			// Check data Length
+		  valData[0] = this.name.length >= namMinLeng;
+			valData[1] = this.subject >= subMinLeng;
+			valData[2] = this.description >= desMinLeng;
+
+			// Email validation
+			valData[3] = LandingCtrl._VAL.emailValidation(this.email);
+
+			while (iter < valData.length && valData[iter]) {
+				iter++;
+			}
+
+			if (valData[iter] === true) {
+				err = 0;
+			} else {
+				err = LandingCtrl._SYS_ERRS.getId(errs[iter]);
+			}
+
+			return err;
 		}
 
 		public sendEmail(): void {
+			var val: number = this.checkInfo();
 
+			if (val === 0) {
+				// Send data message to API
+				LandingCtrl._$HTTP({
+					method: 'POST',
+					url: 'http://localhost:8000/email',
+					headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+		      data: $.param({
+		       name: this.name,
+		       email: this.email,
+					 subject: this.subject,
+					 description: this.description
+		      })
+				});
+			} else {
+				this.err = LandingCtrl._SYS_ERRS.getNameErr(val);
+				this.errDes = LandingCtrl._SYS_ERRS.getPosSol(val);
+			}
 		}
 
 		private working(): void {
