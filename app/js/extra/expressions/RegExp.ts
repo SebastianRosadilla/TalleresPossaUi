@@ -6,7 +6,7 @@ module re {
 
     public userRegExp(): RegExp {
 			return new RegExp(
-				'/^[a-z\d_]{8,20}$/i'
+				'^[a-z\d_A-Z]{8,20}$'
 			);
 		}
 
@@ -20,9 +20,7 @@ module re {
 
 		public passRegExp(): RegExp {
 			return new RegExp(
-		     '(?=^.{8,}$)((?=.*\d)|'
-					+'(?=.*\W+))(?![.\n])'
-					+'(?=.*[A-Z])(?=.*[a-z]).*$'
+		     '^[a-zA-Z0-9]+([a-zA-Z0-9]|(\W|_|-)){7,19}'
 				);
 		}
 

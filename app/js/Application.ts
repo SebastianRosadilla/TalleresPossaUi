@@ -24,5 +24,6 @@ module app {
                           $urlRouterProvider,
                           $locationProvider
                         );
-                });
+                })
+                .service('SystErrs', errSys.ErrSys);
 }

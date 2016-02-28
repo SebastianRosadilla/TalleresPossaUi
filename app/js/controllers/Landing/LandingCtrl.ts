@@ -1,8 +1,4 @@
 /// <reference path='../../_all.ts' />
-// Login logic
-/// <reference path='Register.ts'/>
-// Register Logic
-/// <reference path='Login.ts'/>
 
 module app {
 	'use strict';
@@ -22,30 +18,14 @@ module app {
 			'$http'
 		];
 
-		private static LOGIN_CTRL: Login.ILogin;
-    private static REGISTER_CTRL: Register.IRegister;
-
-		// Login data
-    public lUser: string = '';
-    public lPassword: string = '';
-
-    // Register data
-    public rUser: string = '';
-    public rPassword: string = '';
-    public rReplyPassword: string = '';
-
+		private static $HTTP: ng.IHttpService;
 		// dependencies are injected via AngularJS $injector
 		// controller's name is registered in Application.ts and specified from ng-controller attribute in index.html
 		constructor(
-			private $http: ng.IHttpService
+			$http: ng.IHttpService
 		) {
+				LandingCtrl.$HTTP = $http;
 	      this.initJQ();
-				this.initV();
-		}
-
-		private initV(): void {
-			LandingCtrl.LOGIN_CTRL = new Login.Login(this.$http);
-			LandingCtrl.REGISTER_CTRL = new Register.Register(this.$http);
 		}
 
 		private initJQ(): void {
@@ -53,24 +33,8 @@ module app {
 			$(document).ready(() => {});
 		}
 
-		// Send data user to API
-		public login(): void {
-			LandingCtrl.LOGIN_CTRL.login(
-				this.lUser,
-				this.lPassword
-			)
-		}
+		public sendEmail(): void {
 
-		public forgot(): void {
-			this.working();
-		}
-
-		public register(): void {
-			LandingCtrl.REGISTER_CTRL.register(
-				this.rUser,
-				this.rPassword,
-				this.rReplyPassword
-			)
 		}
 
 		private working(): void {

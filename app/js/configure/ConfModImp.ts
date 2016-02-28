@@ -12,7 +12,7 @@ module app {
     ];
 
     constructor(
-      private $stateProvider: ng.ui.IStateProvider,
+      private _$stateProvider: ng.ui.IStateProvider,
       private $urlRouterProvider: ng.ui.IUrlRouterProvider,
       private $locationProvider: ng.ILocationProvider
     ) {
@@ -20,19 +20,19 @@ module app {
     }
 
     private init(): void {
-        this.$stateProvider.state("Home", Configuration.defaultState());
+        this._$stateProvider.state("Lading", Configuration.defaultState());
         this.$urlRouterProvider.otherwise('/');
 
         this.$locationProvider.html5Mode(true);
     }
 
     private static defaultState(): ng.ui.IState {
-          return {
-              url: "/",
-              templateUrl: "Landing.html",
-              controller: LandingCtrl,
-              controllerAs: 'home'
-          }
-      }
+        return {
+            url: "/",
+            templateUrl: "Landing.html",
+            controller: LandingCtrl,
+            controllerAs: 'landing'
+        }
+    }
   }
 }
