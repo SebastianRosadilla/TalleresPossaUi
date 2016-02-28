@@ -16,16 +16,22 @@
 		display: inline-block;
 	}
 
-	@include media($desktop) {
+	@include media-min($desktop) {
 		h1 {
-			font-size: 1.6em;
+			font-size: 2em;
 		}
 	}
 
 	header {
 		display: block;
 		background-color: $primary-color;
-		padding: .8em 1em;
+		padding: .7em 1.2em;
+		h1{
+			font-size: 1.6em;
+		}
+		@include media-min($desktop){
+			padding: .7em 2em;
+		}
 	}
 
 	a {
@@ -44,41 +50,32 @@
 			li {
 				list-style-type: none;
 				display: inline-block; 
-				padding: .2em .1em;
-
-				a.conocenos {
-					height: 6px;
-					border-top: 3px solid $white;
-					border-bottom: 3px solid $white;
-					&:before{
-						content: "";
-						position: absolute;
-						right: 20px;
-						top: 1.2em;
-						width: 1.3em;
-						height: 0.19em;
-						background:$white;
-						box-shadow: 
-						    0 0.4em 0 0 $white,
-						    0 0.8em 0 0 $white;
-					}
-				}
-				a.trabajos {
-					&:before {
-						content: "";
-					}
-				}
-
-				a.contacto {
-					&:before {
-						content: "";
+				padding: .6em .5em;
+				@include media-max($desktop - 1px) {
+					a.conocenos {
+						height: 6px;
+						border-top: 3px solid $white;
+						border-bottom: 3px solid $white;
+						&:before{
+							content: "";
+							position: absolute;
+							right: 20px;
+							top: 1.2em;
+							width: 1.3em;
+							height: 0.19em;
+							background:$white;
+							box-shadow: 
+							    0 0.4em 0 0 $white,
+							    0 0.8em 0 0 $white;
+						}
 					}
 				}
 
 				// FIXME
-				@include media($desktop) {
-					.conocenos:before {
+				@include media-min($desktop) {
+					a.conocenos:before {
 						content: "Conocenos";
+						display: inline-block;
 					}
 
 					a.trabajos {
@@ -101,18 +98,24 @@
 		.one-half{
 			width: 100%;
 		}
-		@include media($desktop) {
+		@include media-min($desktop) {
 			.one-half {
 				width: 50%;
 				display: inline-block;
 			}
 			.right {
-				width: 28%;
+				width: 40%;
 				display: inline-block;
-				float: right;
+				vertical-align: top;
+				margin-left: 60px;
+				margin-top: 61px;
+				color: $gray;
 				p {
-					line-height: 1.8em;
+					line-height: 2.4em;
 					font-weight: 300;
+				}
+				h1{
+					margin-bottom: .4em;
 				}
 			}
 		}
