@@ -2,7 +2,8 @@
 $primary-color: #ff853c;
 $white: #fff;
 $gray: #555;
-
+$light-gray:#999;
+$smooth-gray: #f1f1f1;
 
 // Mixins
 @mixin init() {
@@ -11,8 +12,9 @@ $gray: #555;
 }
 
 // Media querys 
+$large-desktop: 1280px;
 $desktop: 1024px;
-$table: 768px;
+$tablet: 768px;
 
 @mixin media-min($width) {
 
