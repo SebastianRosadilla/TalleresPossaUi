@@ -33,7 +33,8 @@ export default {
       'node_modules/jquery/dist/jquery.min.js',
       'externalJS/*.js',
       'node_modules/angular*/*.min.js',
-      'node_modules/angular*/**/*.min.js'
+      'node_modules/angular*/**/*.min.js',
+      'node_modules/swiper/dist/js/*.min.js'
     ],
     dest: 'build/dependencies',
     name: 'main.js'

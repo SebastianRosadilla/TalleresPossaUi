@@ -1,0 +1,43 @@
+@import 'depen.scss';
+//colors
+$color_gallery_approx: #eee;
+$black: #000;
+$white: #fff;
+
+//fonts
+$font_0: Helvetica Neue;
+$font_1: Helvetica;
+$font_2: Arial;
+$font_3: sans-serif;
+
+.swiper-container {
+	width: 400px;
+	height: 400px;
+}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: $black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	p {
+		color: $white;
+	}
+}
+
+.swiper-pagination-bullet {
+	background: $white;
+}
+
+.arrow-left,
+.arrow-right {
+	background: $white;
+	height: 30px;
+	margin-top: -15px;
+	position: absolute;
+  top: 50%;
+	width: 17px;
+	z-index: 10000;
+}

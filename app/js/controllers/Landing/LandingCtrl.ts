@@ -43,14 +43,27 @@ module app {
 				LandingCtrl._SYS_ERRS = SystErrs;
 				LandingCtrl._VAL = new Validation.Validation();
 
-	      this.initJQ();
+	      this._initJQ();
 		}
 
 		private _initJQ(): void {
-			// Register effect
-			$(document).ready(() => {
-
-			});
+			$(document).ready(function () {
+				var swiper: Swiper = new Swiper('.swiper-container', {
+						loop: true,
+		        pagination: '.swiper-pagination',
+		        paginationClickable: true,
+						autoplay: 5000,
+						simulateTouch: true
+		    });
+				$('.arrow-left').on('click', function(e){
+			    e.preventDefault();
+			    swiper.slideNext();
+			  });
+			  $('.arrow-right').on('click', function(e){
+			    e.preventDefault();
+			    swiper.slideNext();
+			  });
+			})
 		}
 
 		private checkInfo(): number {
@@ -74,8 +87,8 @@ module app {
 
 			// Check data Length
 		  valData[0] = this.name.length >= namMinLeng;
-			valData[1] = this.subject >= subMinLeng;
-			valData[2] = this.description >= desMinLeng;
+			valData[1] = this.subject.length >= subMinLeng;
+			valData[2] = this.description.length >= desMinLeng;
 
 			// Email validation
 			valData[3] = LandingCtrl._VAL.emailValidation(this.email);
