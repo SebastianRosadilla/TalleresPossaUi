@@ -52,13 +52,13 @@
 	nav {
 		display: inline-block;
 		float: right;
-	
+
 		ul {
 			display: block;
-	
+
 			li {
 				list-style-type: none;
-				display: inline-block; 
+				display: inline-block;
 				padding: .6em .5em;
 				@include media-max($desktop - 1px) {
 					a.conocenos {
@@ -73,7 +73,7 @@
 							width: 1.3em;
 							height: 0.19em;
 							background:$white;
-							box-shadow: 
+							box-shadow:
 							    0 0.4em 0 0 $white,
 							    0 0.8em 0 0 $white;
 						}
@@ -154,7 +154,7 @@
 					margin-bottom: .4em;
 				}
 				@include media-min($large-desktop){
-					margin-top: 40px;	
+					margin-top: 40px;
 				}
 			}
 		}
@@ -180,7 +180,7 @@
 					width: 45%;
 					margin-right: .5em;
 					padding: 0px;
-					img { 
+					img {
 						width: 100%;
 						display: inline-block;
 						padding: .4em;
@@ -204,7 +204,7 @@
 					}
 				}
 			}
-		}	
+		}
 		@include media-min($desktop) {
 			.container{
 				display: block;
@@ -221,12 +221,12 @@
 					}
 				}
 			}
-		}	
+		}
 	}
 	#contact {
 		padding: 0 1em;
 		margin: auto;
-		display: block;	
+		display: block;
 		h1{
 			display: block;
 		}
@@ -256,8 +256,7 @@
 			textarea{
 				width: 100%;
 				border:1px solid $smooth-gray;
-				padding: 5em;
-				box-sizing: border-box;
+				height: 200px;
 				margin-top: 1em;
 			}
 			button{
@@ -320,7 +319,7 @@
 				width: 48%;
 				display: inline-block;
 			}
-			.info{				
+			.info{
 				width: 40%;
 				display: inline-block;
 				vertical-align: top;
@@ -328,7 +327,7 @@
 			}
 		}
 		@include media-min($desktop){
-			.info{				
+			.info{
 				width: 28%;
 				display: inline-block;
 				vertical-align: top;
@@ -336,7 +335,7 @@
 			}
 		}
 		@include media-min($large-desktop){
-			.info{				
+			.info{
 				width: 28%;
 				display: inline-block;
 				vertical-align: top;
@@ -399,4 +398,3 @@
 		}
 	}
 }
-

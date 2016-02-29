@@ -24,10 +24,10 @@ module app {
 		private static _VAL: Validation.IValidation;
 
 		// Form variables
-		public name: string = '';
-		public email: string = '';
-		public subject: string = '';
-		public description: string = '';
+		public name: string = 'kasjndkasjndkjasnjkd';
+		public email: string = 'ksajad@akjsnd.com';
+		public subject: string = 'asjdjasbhdajshbdsbhadhabsdjhbasjbhdas';
+		public description: string = 'asdbnashbdsbadabsdbasbdabsdbasjdbsabdjabsdbasbdshbadbasdjbasbdsbadjhsbad';
 
 		// Form error description
 		public err: string = '';
@@ -106,14 +106,21 @@ module app {
 			return err;
 		}
 
+		public clean():void {
+			this.name= '';
+			this.email= '';
+		 	this.subject = '';
+			this.description = '';
+		}
+
 		public sendEmail(): void {
 			var val: number = this.checkInfo();
 
-			if (val === 0) {
+			// if (val === 0) {
 				// Send data message to API
 				LandingCtrl._$HTTP({
 					method: 'POST',
-					url: 'http://localhost:8000/email',
+					url: 'http://127.0.0.1:8000/email',
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 		      data: $.param({
 		       name: this.name,
@@ -121,11 +128,16 @@ module app {
 					 subject: this.subject,
 					 description: this.description
 		      })
-				});
-			} else {
-				this.err = LandingCtrl._SYS_ERRS.getNameErr(val);
-				this.errDes = LandingCtrl._SYS_ERRS.getPosSol(val);
-			}
+				}).then(function (result) {
+						this.clean();
+		        alert(result);
+		    }, function (error) {
+		        alert(error);
+		    });
+			// } else {
+			// 	this.err = LandingCtrl._SYS_ERRS.getNameErr(val);
+			// 	this.errDes = LandingCtrl._SYS_ERRS.getPosSol(val);
+			// }
 		}
 
 		private working(): void {

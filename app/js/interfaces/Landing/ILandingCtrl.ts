@@ -10,5 +10,6 @@ module app {
 
 
     sendEmail(): void;
+    clean(): void;
   }
 }
