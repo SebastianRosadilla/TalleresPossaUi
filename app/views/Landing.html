@@ -62,12 +62,17 @@
 	<section id='contact'>
 		<h1>Contacto</h1>
 		<form class="one-half">
-	      <input type="text" placeholder="Nombre" required="required" class="one-half" />
-	      <input type="email" placeholder="E-mail" required="required" class="one-half right" />
-	      <input type="text" placeholder="Asunto" required="required" />
+	      <input type="text" placeholder="Nombre"
+								required="required" class="one-half"
+								ng-model="landing.name"/>
+	      <input type="email" placeholder="E-mail"
+							 required="required" class="one-half right"
+							 ng-model="landing.email"/>
+	      <input type="text" placeholder="Asunto"
+							 required="required" ng-model="landing.subject"/>
 	      <label for="message">Mensaje</label>
-	      <textarea name="Message"></textarea>
-	      <button>Enviar</button>
+	      <textarea name="Message" ng-model="landing.description"></textarea>
+	      <button ng-click="landing.sendEmail()">Enviar</button>
 	    </form>
 	    <div class="info">
 	    	<p>Lorem ipsum dolor sit amet serat derilum onclatum destteran omni put vulumn goratim sus delirum dora</p>
