@@ -1,13 +1,9 @@
 @import 'depen';
 
-html {
-
-}
-body {
-
-}
-
-// The main Angular container
+html,
+body,
+// Main Angular container
 .ng-scope {
-
+	margin: 0;
+	padding: 0;
 }

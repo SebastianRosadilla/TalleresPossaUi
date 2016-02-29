@@ -1,1 +1,374 @@
 @import 'depen.scss';
+
+// Parent container
+.landing {
+	@include init();
+	font-family: $roboto;
+	font-size: 1.15em;
+	color: $gray;
+
+	* {
+		@include init();
+	}
+
+	h1 {
+		font-size: 1.6em;
+		font-family: "Roboto Slab";
+		display: inline-block;
+		padding-top: 1.5em;
+		margin-bottom: .5em;
+	}
+	p{
+		line-height: 2.1em;
+		font-weight: 300;
+	}
+	@include media-min($desktop) {
+		h1 {
+			font-size: 2em;
+		}
+	}
+
+	header {
+		display: block;
+		background-color: $primary-color;
+		padding: .7em 1.2em;
+		h1{
+			font-size: 1.6em;
+			color: $white;
+			padding-top: 0px;
+			margin: 0px;
+		}
+		@include media-min($desktop){
+			padding: .7em 2em;
+		}
+	}
+
+	a {
+		color: $white;
+		text-decoration: none;
+		display: inline-block;
+	}
+
+	nav {
+		display: inline-block;
+		float: right;
+	
+		ul {
+			display: block;
+	
+			li {
+				list-style-type: none;
+				display: inline-block; 
+				padding: .6em .5em;
+				@include media-max($desktop - 1px) {
+					a.conocenos {
+						height: 6px;
+						border-top: 3px solid $white;
+						border-bottom: 3px solid $white;
+						&:before{
+							content: "";
+							position: absolute;
+							right: 20px;
+							top: 1.2em;
+							width: 1.3em;
+							height: 0.19em;
+							background:$white;
+							box-shadow: 
+							    0 0.4em 0 0 $white,
+							    0 0.8em 0 0 $white;
+						}
+					}
+				}
+
+				// FIXME
+				@include media-min($desktop) {
+					a.conocenos:before {
+						content: "Conocenos";
+						display: inline-block;
+					}
+
+					a.trabajos {
+						&:before {
+							content: "Trabajos";
+						}
+					}
+
+					a.contacto {
+						&:before {
+							content: "Contactanos";
+						}
+					}
+				}
+			}
+		}
+	}
+	#slider {
+		padding: 2.5em 1em 3em 1em;
+		@include media-min($desktop){
+			padding: 3em 2em 4em 2em;
+		}
+		.one-half{
+			img{
+			width: 100%;}
+		}
+		@include media-min($tablet) {
+			.one-half {
+				width: 50%;
+				display: inline-block;
+				img{
+					width: 100%;
+				}
+			}
+			.right {
+				width: 40%;
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 40px;
+				p {
+					line-height: 2em;
+					font-weight: 300;
+					font-size: .87em;
+				}
+				h1{
+					margin-bottom: .3em;
+					padding: 0px;
+				}
+			}
+		}
+
+		@include media-min($desktop) {
+			.one-half {
+				width: 50%;
+				display: inline-block;
+			}
+			.right {
+				width: 40%;
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 60px;
+				p {
+					line-height: 2.4em;
+					font-weight: 300;
+					font-size: 1.01em;
+				}
+				h1{
+					margin-bottom: .4em;
+				}
+				@include media-min($large-desktop){
+					margin-top: 40px;	
+				}
+			}
+		}
+	}
+
+	#jobs {
+		background-color: $smooth-gray;
+		h1{
+			text-align: center;
+			display: block;
+			box-sizing:border-box;
+			margin-bottom: .8em;
+		}
+
+		.container{
+			display: block;
+			text-align: center;
+			padding-right: 1em;
+			padding-left: 1em;
+			padding-bottom: 4em;
+			.one-third-column {
+					display: inline-block;
+					width: 45%;
+					margin-right: .5em;
+					padding: 0px;
+					img { 
+						width: 100%;
+						display: inline-block;
+						padding: .4em;
+						margin-bottom: 0px;
+					}
+				}
+		}
+		@include media-min($tablet) {
+			.container{
+				display: block;
+				text-align: center;
+				padding-bottom: 4em;
+				.one-third-column{
+					display: block;
+					width: 100%;
+					img{
+						width: 24%;
+						display: inline-block;
+						padding: .4em;
+						margin-bottom: 0px;
+					}
+				}
+			}
+		}	
+		@include media-min($desktop) {
+			.container{
+				display: block;
+				text-align: center;
+				padding-bottom: 4em;
+				.one-third-column{
+					display: block;
+					width: 100%;
+					img{
+						width: 24%;
+						display: inline-block;
+						padding: .4em;
+						margin-bottom: 0px;
+					}
+				}
+			}
+		}	
+	}
+	#contact {
+		padding: 0 1em;
+		h1{
+			display: block;
+		}
+		form {
+			display: block;
+			width: 100%;
+			input {
+				box-shadow: none;
+				border:none;
+				width: 100%;
+				padding: .9em .4em;
+				border-bottom: 1px solid $smooth-gray;
+				margin-bottom: 1.5em;
+				font-size: .8em;
+				font-weight: 300;
+				box-sizing:border-box;
+
+				&:focus {
+					outline: none;
+				}
+			}
+			label {
+				font-weight: 300;
+				font-size: .8em;
+				color: $light-gray;
+			}
+			textarea{
+				width: 100%;
+				border:1px solid $smooth-gray;
+				padding: 5em;
+				box-sizing: border-box;
+				margin-top: 1em;
+			}
+			button{
+				border: none;
+				background-color: $gray;
+				padding: .8em 1.2em;
+				color: $white;
+				font-size: .8em;
+				font-weight: 300;
+				margin-top: 1em;
+			}
+			@include media-min($desktop){
+				.one-half{
+					width: 46%;
+					display:inline-block;
+				}
+				.right{
+					float: right;
+				}
+			}
+		}
+		.info{
+			color: $light-gray;
+			margin-top: 30px;
+			.icons{
+				margin-top: 1em;
+				.inline{
+					display: block;
+					margin-top: .2em;
+					p{
+						font-size: .87em;
+						width: 70%;
+						display: inline-block;
+					}
+					i{
+						display: inline-block;
+						width: 5%;
+						vertical-align: middle;
+					}
+				}
+				.phone{
+					i{
+						font-size: 1.2em;
+					}
+				}
+				.mail{
+					i{
+						font-size: .7em;
+					}
+				}
+			}
+
+		}
+		@include media-min($tablet){
+			margin: auto;
+			display: block;
+			padding-left: 2em;
+			padding-right: 2em;
+			.one-half{
+				width: 48%;
+				display: inline-block;
+			}
+			.info{				
+				width: 40%;
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 50px;
+			}
+		}
+		@include media-min($desktop){
+			.info{				
+				width: 28%;
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 100px;
+			}
+		}
+	}
+	footer{
+		background-color: $gray;
+		color: $white;
+		display: block;
+		margin-top: 3em;
+		padding: 1em 0;
+		.icons{
+			width: 58%;
+			margin: auto;
+			.inline{
+				display: inline-block;
+				width: 32%;
+				p{
+					font-size: .87em;
+					width: 70%;
+					display: inline-block;
+				}
+				i{
+					display: inline-block;
+					width: 5%;
+					vertical-align: middle;
+				}
+			}
+			.phone{
+				i{
+					font-size: 1.2em;
+				}
+			}
+			.mail{
+				i{
+					font-size: .7em;
+				}
+			}
+		}
+	}
+}
+
