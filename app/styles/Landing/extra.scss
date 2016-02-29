@@ -31,13 +31,3 @@ $font_3: sans-serif;
 	background: $white;
 }
 
-.arrow-left,
-.arrow-right {
-	background: $white;
-	height: 30px;
-	margin-top: -15px;
-	position: absolute;
-  top: 50%;
-	width: 17px;
-	z-index: 10000;
-}

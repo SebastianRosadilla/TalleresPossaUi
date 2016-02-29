@@ -103,11 +103,10 @@
 		}
 	}
 	#slider {
-		padding: 2.5em 1em 3em 1em;
-		@include media-min($desktop){
-			padding: 3em 2em 4em 2em;
+		.swiper-pagination-bullet {
+			background-color: $primary-color;
 		}
-		.one-half{
+		.one-half {
 			img{
 			width: 100%;}
 		}
