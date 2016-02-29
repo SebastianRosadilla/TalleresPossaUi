@@ -226,6 +226,8 @@
 	}
 	#contact {
 		padding: 0 1em;
+		margin: auto;
+		display: block;	
 		h1{
 			display: block;
 		}
@@ -334,6 +336,14 @@
 				margin-left: 100px;
 			}
 		}
+		@include media-min($large-desktop){
+			.info{				
+				width: 28%;
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 180px;
+			}
+		}
 	}
 	footer{
 		background-color: $gray;
@@ -342,19 +352,16 @@
 		margin-top: 3em;
 		padding: 1em 0;
 		.icons{
-			width: 58%;
-			margin: auto;
+			padding: 0 1em;
 			.inline{
-				display: inline-block;
-				width: 32%;
 				p{
-					font-size: .87em;
+					font-size: .8em;
 					width: 70%;
 					display: inline-block;
 				}
 				i{
 					display: inline-block;
-					width: 5%;
+					width: 6%;
 					vertical-align: middle;
 				}
 			}
@@ -366,6 +373,28 @@
 			.mail{
 				i{
 					font-size: .7em;
+				}
+			}
+		}
+		@include media-min($tablet){
+			.icons{
+				margin: auto;
+				display: block;
+				width: 100%;
+				.inline{
+					width: 32%;
+					display:inline-block;
+				}
+			}
+		}
+		@include media-min($desktop){
+			.icons{
+				width: 70%;
+				margin: auto;
+				display: block;
+				.inline{
+					display: inline-block;
+					width: 32%;
 				}
 			}
 		}
