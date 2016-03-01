@@ -24,10 +24,10 @@ module app {
 		private static _VAL: Validation.IValidation;
 
 		// Form variables
-		public name: string = 'kasjndkasjndkjasnjkd';
-		public email: string = 'ksajad@akjsnd.com';
-		public subject: string = 'asjdjasbhdajshbdsbhadhabsdjhbasjbhdas';
-		public description: string = 'asdbnashbdsbadabsdbasbdabsdbasjdbsabdjabsdbasbdshbadbasdjbasbdsbadjhsbad';
+		public name: string = '';
+		public email: string = '';
+		public subject: string = '';
+		public description: string = '';
 
 		// Form error description
 		public err: string = '';
@@ -47,6 +47,19 @@ module app {
 		}
 
 		private _initJQ(): void {
+			var scroll: any = (
+				button: string,
+				eleToScr: string,
+				time: number
+			) => {
+				$(button).parent().click(() => {
+					$('html, body').animate({
+			        scrollTop: $(eleToScr).offset().top
+			    }, time);
+				});
+			};
+
+
 			$(document).ready(function () {
 				var swiper: Swiper = new Swiper('.swiper-container', {
 						loop: true,
@@ -55,14 +68,10 @@ module app {
 						autoplay: 5000,
 						simulateTouch: true
 		    });
-				$('.arrow-left').on('click', function(e){
-			    e.preventDefault();
-			    swiper.slideNext();
-			  });
-			  $('.arrow-right').on('click', function(e){
-			    e.preventDefault();
-			    swiper.slideNext();
-			  });
+
+				scroll('.conocenos', '#slider', 2000);
+				scroll('.trabajos', '#jobs', 2000);
+				scroll('.contacto', '#contact', 2000);
 			})
 		}
 
@@ -87,17 +96,17 @@ module app {
 
 			// Check data Length
 		  valData[0] = this.name.length >= namMinLeng;
-			valData[1] = this.subject.length >= subMinLeng;
-			valData[2] = this.description.length >= desMinLeng;
+			valData[2] = this.subject.length >= subMinLeng;
+			valData[3] = this.description.length >= desMinLeng;
 
 			// Email validation
-			valData[3] = LandingCtrl._VAL.emailValidation(this.email);
+			valData[1] = LandingCtrl._VAL.emailValidation(this.email);
 
 			while (iter < valData.length && valData[iter]) {
 				iter++;
 			}
 
-			if (valData[iter] === true) {
+			if (valData[iter - 1] === true) {
 				err = 0;
 			} else {
 				err = LandingCtrl._SYS_ERRS.getId(errs[iter]);
@@ -116,11 +125,12 @@ module app {
 		public sendEmail(): void {
 			var val: number = this.checkInfo();
 
-			// if (val === 0) {
+			console.log(val);
+			if (val === 0) {
 				// Send data message to API
 				LandingCtrl._$HTTP({
 					method: 'POST',
-					url: 'http://127.0.0.1:8000/email',
+					url: 'http://localhost:8000/email',
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 		      data: $.param({
 		       name: this.name,
@@ -128,16 +138,18 @@ module app {
 					 subject: this.subject,
 					 description: this.description
 		      })
-				}).then(function (result) {
+				}).then((result) => {
 						this.clean();
-		        alert(result);
-		    }, function (error) {
-		        alert(error);
+		        alert('Enviado con exito');
+		    }, (error) => {
+		        alert('Error al enviar mensaje');
 		    });
-			// } else {
-			// 	this.err = LandingCtrl._SYS_ERRS.getNameErr(val);
-			// 	this.errDes = LandingCtrl._SYS_ERRS.getPosSol(val);
-			// }
+			} else {
+				this.err = LandingCtrl._SYS_ERRS.getNameErr(val);
+				this.errDes = LandingCtrl._SYS_ERRS.getPosSol(val);
+				console.log(this.err);
+				console.log(this.errDes);
+			}
 		}
 
 		private working(): void {
