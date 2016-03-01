@@ -75,7 +75,7 @@ module app {
 			})
 		}
 
-		private checkInfo(): number {
+		private _checkInfo(): number {
 			var err: number = 0,
 					iter: number = 0,
 					namMinLeng: number = 4,
@@ -94,6 +94,11 @@ module app {
 						'FaiForDes'
 					];
 
+			// Check data is not undefine
+			if (this._allInfo()) {
+				this._cleanData();
+			}
+
 			// Check data Length
 		  valData[0] = this.name.length >= namMinLeng;
 			valData[2] = this.subject.length >= subMinLeng;
@@ -106,7 +111,8 @@ module app {
 				iter++;
 			}
 
-			if (valData[iter - 1] === true) {
+			if (iter === valData.length
+				  && valData[iter - 1] === true) {
 				err = 0;
 			} else {
 				err = LandingCtrl._SYS_ERRS.getId(errs[iter]);
@@ -115,17 +121,40 @@ module app {
 			return err;
 		}
 
-		public clean():void {
-			this.name= '';
-			this.email= '';
+		private _allInfo(): boolean {
+			var flag: boolean = true,
+					iter: number = 0,
+					pro: string[] = [
+						'name',
+						'email',
+						'subject',
+						'description'
+					];
+
+			while(flag && iter < pro.length) {
+				flag = this.hasOwnProperty(pro[iter]);
+				iter++;
+			}
+
+			return flag;
+		}
+
+		private _cleanData():void {
+			this.name = '';
+			this.email = '';
 		 	this.subject = '';
 			this.description = '';
 		}
 
-		public sendEmail(): void {
-			var val: number = this.checkInfo();
+		private clean(): void {
+			this._cleanData();
+			this.err = '';
+			this.errDes = '';
+		}
 
-			console.log(val);
+		public sendEmail(): void {
+			var val: number = this._checkInfo();
+
 			if (val === 0) {
 				// Send data message to API
 				LandingCtrl._$HTTP({
@@ -147,8 +176,6 @@ module app {
 			} else {
 				this.err = LandingCtrl._SYS_ERRS.getNameErr(val);
 				this.errDes = LandingCtrl._SYS_ERRS.getPosSol(val);
-				console.log(this.err);
-				console.log(this.errDes);
 			}
 		}
 
