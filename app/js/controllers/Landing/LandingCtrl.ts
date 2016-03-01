@@ -95,7 +95,7 @@ module app {
 					];
 
 			// Check data is not undefine
-			if (this._allInfo()) {
+			if (!this._allInfo()) {
 				this._cleanData();
 			}
 
@@ -132,7 +132,7 @@ module app {
 					];
 
 			while(flag && iter < pro.length) {
-				flag = this.hasOwnProperty(pro[iter]);
+				flag = this.hasOwnProperty(pro[iter]) && pro[iter] !== undefined;
 				iter++;
 			}
 
