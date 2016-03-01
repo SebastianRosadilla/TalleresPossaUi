@@ -9,7 +9,7 @@ module app {
     errDes: string;
 
 
-    sendEmail(): void;
     clean(): void;
+    sendEmail(): void;
   }
 }
