@@ -78,8 +78,7 @@
 							    0 0.8em 0 0 $white;
 						}
 					}
-				}
-
+				}		
 				// FIXME
 				@include media-min($desktop) {
 					a.conocenos:before {
@@ -106,6 +105,14 @@
 		.swiper-pagination-bullet {
 			background-color: $primary-color;
 		}
+
+		.swiper-wrapper {
+			padding: 2.5em 1.2em;
+			@include media-min($desktop) {
+				padding: 3em 2em;
+			}
+		}
+
 		.one-half {
 			img{
 			width: 100%;}
@@ -259,6 +266,11 @@
 				height: 200px;
 				margin-top: 1em;
 			}
+			.small{
+				font-size: .7em;
+				color: $alert;
+				margin-top: .5em;
+			}
 			button{
 				border: none;
 				background-color: $gray;
@@ -348,20 +360,24 @@
 		color: $white;
 		display: block;
 		margin-top: 3em;
-		padding: 1em 0;
+		box-sizing:border-box;
+		padding: 1em;
 		.icons{
-			padding: 0 1em;
+			text-align: left;
 			.inline{
+				display: block;
 				p{
 					font-size: .8em;
-					width: 70%;
+					width: 60%;
 					display: inline-block;
 				}
+				
 				i{
 					display: inline-block;
-					width: 6%;
+					width: 4%;
 					vertical-align: middle;
 				}
+
 			}
 			.phone{
 				i{
@@ -378,21 +394,26 @@
 			.icons{
 				margin: auto;
 				display: block;
-				width: 100%;
 				.inline{
-					width: 32%;
+					width: 49%;
 					display:inline-block;
 				}
 			}
 		}
 		@include media-min($desktop){
 			.icons{
-				width: 70%;
+				text-align: center;
 				margin: auto;
 				display: block;
 				.inline{
 					display: inline-block;
-					width: 32%;
+					width: 17%;
+				}
+				.width {
+					width: 56%;
+				} 
+				.small-width {
+					width: 41%;
 				}
 			}
 		}

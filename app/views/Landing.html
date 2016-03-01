@@ -62,16 +62,14 @@
 	<section id='contact'>
 		<h1>Contacto</h1>
 		<form class="one-half">
-	      <input type="text" placeholder="Nombre"
-								required="required" class="one-half"
-								ng-model="landing.name"/>
-	      <input type="email" placeholder="E-mail"
-							 required="required" class="one-half right"
-							 ng-model="landing.email"/>
-	      <input type="text" placeholder="Asunto"
-							 required="required" ng-model="landing.subject"/>
+	      <input type="text" placeholder="Nombre" required="required" class="one-half" ng-model="landing.name"/>
+	      <input type="email" placeholder="E-mail" required="required" class="one-half right" ng-model="landing.email"/>
+	      <input type="text" placeholder="Asunto" required="required" ng-model="landing.subject"/>
 	      <label for="message">Mensaje</label>
 	      <textarea name="Message" ng-model="landing.description"></textarea>
+	      <div>
+	      	<p class="small">* Lorem ipsum dolor sit amet serat derilum onclatum</p>
+	      </div>
 	      <button ng-click="landing.sendEmail()">Enviar</button>
 	    </form>
 	    <div class="info">
@@ -94,13 +92,21 @@
 	</section>
 	<footer>
 		<div class="icons">
+			<a class= "inline" href="https://github.com/ilianan">
+				<i class="fa fa-github"></i>
+				<p class="small-width">Iliana Núñez</p>
+			</a>
+			<a class="inline" href="https://github.com/SebastianRosadilla">
+				<i class="fa fa-github"></i>
+				<p class="width">Sebastian Rosadilla</p>
+			</a>
 	    	<div class="adress inline">
 	    		<i class="fa fa-map-marker"></i>
 	    		<p>Lorem ipsum dolor 3281</p>
 	    	</div>
 	    	<div class="phone inline">
 	    		<i class="fa fa-mobile"></i>
-	    		<p>(+598) 91 123 546</p>
+	    		<p class="width">(+598) 91 123 546</p>
 	    	</div>
 	    	<div class="mail inline">
 	    		<i class="fa fa-envelope"></i>
