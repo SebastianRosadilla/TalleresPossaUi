@@ -104,7 +104,7 @@
 	#slider {
 		margin: 2.5em 1.2em;
 			@include media-min($desktop) {
-				padding: 3em 2em;
+				margin: 3em 2em;
 			}
 		.swiper-pagination-bullet {
 			background-color: $primary-color;
