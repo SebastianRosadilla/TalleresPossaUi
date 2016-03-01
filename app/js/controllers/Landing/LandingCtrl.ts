@@ -159,7 +159,7 @@ module app {
 				// Send data message to API
 				LandingCtrl._$HTTP({
 					method: 'POST',
-					url: 'http://localhost:8000/email',
+					url: 'http://54.213.88.198:8000/email',
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 		      data: $.param({
 		       name: this.name,
