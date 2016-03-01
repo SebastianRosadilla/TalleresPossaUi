@@ -368,14 +368,20 @@
 				display: block;
 				p{
 					font-size: .8em;
-					width: 60%;
+					width: 68%;
 					display: inline-block;
 				}
 				
 				i{
 					display: inline-block;
-					width: 4%;
+					width: 3%;
 					vertical-align: middle;
+				}
+				.width {
+					width: 55%;
+				} 
+				.small-width {
+					width: 35%;
 				}
 
 			}
@@ -397,23 +403,22 @@
 				.inline{
 					width: 49%;
 					display:inline-block;
+					i{
+						width: 5%;
+					}
 				}
 			}
 		}
-		@include media-min($desktop){
+		@include media-min($large-desktop){
 			.icons{
-				text-align: center;
 				margin: auto;
 				display: block;
 				.inline{
 					display: inline-block;
 					width: 17%;
-				}
-				.width {
-					width: 56%;
-				} 
-				.small-width {
-					width: 41%;
+					i{
+						width: 8%;
+					}
 				}
 			}
 		}
