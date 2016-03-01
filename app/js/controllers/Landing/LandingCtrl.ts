@@ -146,7 +146,7 @@ module app {
 			this.description = '';
 		}
 
-		private clean(): void {
+		public clean(): void {
 			this._cleanData();
 			this.err = '';
 			this.errDes = '';
