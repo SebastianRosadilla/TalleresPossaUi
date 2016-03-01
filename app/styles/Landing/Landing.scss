@@ -102,15 +102,12 @@
 		}
 	}
 	#slider {
-		.swiper-pagination-bullet {
-			background-color: $primary-color;
-		}
-
-		.swiper-wrapper {
-			padding: 2.5em 1.2em;
+		margin: 2.5em 1.2em;
 			@include media-min($desktop) {
 				padding: 3em 2em;
 			}
+		.swiper-pagination-bullet {
+			background-color: $primary-color;
 		}
 
 		.one-half {
@@ -368,7 +365,6 @@
 				display: block;
 				p{
 					font-size: .8em;
-					width: 68%;
 					display: inline-block;
 				}
 				
@@ -378,10 +374,10 @@
 					vertical-align: middle;
 				}
 				.width {
-					width: 55%;
+					width: 65%;
 				} 
 				.small-width {
-					width: 35%;
+					width: 45%;
 				}
 
 			}
@@ -404,7 +400,7 @@
 					width: 49%;
 					display:inline-block;
 					i{
-						width: 5%;
+						width: 5%
 					}
 				}
 			}
