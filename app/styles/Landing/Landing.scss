@@ -6,6 +6,24 @@
 	font-family: $roboto;
 	font-size: 1.15em;
 	color: $gray;
+	position: relative;
+	z-index: 0;
+
+	.menu {
+		background-color: rgba(0,0,0, 0.5);
+		border: 1px solid black;
+		height: 200px;
+		position: absolute;
+		top: 3.6em;
+		transition: 2s;
+		right: 0;
+		z-index: 1;
+		width: 200px;
+
+		&.disable {
+			width: 0;
+		}
+	}
 
 	* {
 		@include init();
@@ -78,7 +96,7 @@
 							    0 0.8em 0 0 $white;
 						}
 					}
-				}		
+				}
 				// FIXME
 				@include media-min($desktop) {
 					a.conocenos:before {
@@ -103,6 +121,7 @@
 	}
 	#slider {
 		margin: 2.5em 1.2em;
+		z-index: 0;
 			@include media-min($desktop) {
 				margin: 3em 2em;
 			}
@@ -367,7 +386,7 @@
 					font-size: .8em;
 					display: inline-block;
 				}
-				
+
 				i{
 					display: inline-block;
 					width: 3%;
@@ -375,7 +394,7 @@
 				}
 				.width {
 					width: 65%;
-				} 
+				}
 				.small-width {
 					width: 45%;
 				}

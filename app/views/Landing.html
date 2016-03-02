@@ -1,4 +1,7 @@
 <div class="landing">
+	<div class="menu" ng-class="{'disable': landing.openMenu}">
+
+	</div>
 	<header>
 		<h1>
 			<a href="#">Talleres Possa</a>
@@ -7,7 +10,7 @@
 			<ul>
 				<li><a class="conocenos"></a></li>
 				<li><a class="trabajos"></a></li>
-				<li><a class="contacto"></a></li>
+				<li ng-click="landing.openMenu = !landing.openMenu"><a class="contacto"></a></li>
 			</ul>
 		</nav>
 	</header>

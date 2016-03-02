@@ -33,6 +33,9 @@ module app {
 		public err: string = '';
 		public errDes: string = '';
 
+		// Menu Configuration
+		public openMenu: boolean =  true;
+
 		// dependencies are injected via AngularJS $injector
 		// controller's name is registered in Application.ts and specified from ng-controller attribute in index.html
 		constructor(
@@ -71,7 +74,7 @@ module app {
 
 				scroll('.conocenos', '#slider', 2000);
 				scroll('.trabajos', '#jobs', 2000);
-				scroll('.contacto', '#contact', 2000);
+				// scroll('.contacto', '#contact', 2000);
 			})
 		}
 
