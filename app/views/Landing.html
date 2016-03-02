@@ -1,6 +1,12 @@
 <div class="landing">
 	<div class="menu" ng-class="{'disable': landing.openMenu}">
-
+		<nav>
+			<ul>
+				<li><a href="#" class="menu">Conocenos</a></li>
+				<li><a href="#" class="menu">Trabajos</a></li>
+				<li><a href="#"class="menu">Contacto</a></li>
+			</ul>
+		</nav>
 	</div>
 	<header>
 		<h1>
@@ -11,6 +17,7 @@
 				<li><a class="conocenos"></a></li>
 				<li><a class="trabajos"></a></li>
 				<li ng-click="landing.openMenu = !landing.openMenu"><a class="contacto"></a></li>
+				<li ng-click="landing.openMenu = !landing.openMenu" class="hamburguer"></li>
 			</ul>
 		</nav>
 	</header>
