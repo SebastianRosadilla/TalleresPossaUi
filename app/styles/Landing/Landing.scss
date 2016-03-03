@@ -19,9 +19,6 @@
 		right: 0;
 		z-index: 1;
 		width: 100%;
-		@include media-min($tablet){
-			width: 170px;
-		}
 		nav {
 			position: relative;
 			height: 100%;
@@ -311,9 +308,9 @@
 				color: $light-gray;
 			}
 			textarea{
-				width: 100%;
+				max-width: 100%;
 				border:1px solid $smooth-gray;
-				height: 200px;
+				max-height: 200px;
 				margin-top: 1em;
 			}
 			.small{
@@ -467,7 +464,7 @@
 				display: block;
 				.inline{
 					display: inline-block;
-					width: 17%;
+					width: 18%;
 					i{
 						width: 8%;
 					}
