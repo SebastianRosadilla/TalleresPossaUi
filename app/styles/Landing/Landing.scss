@@ -31,7 +31,7 @@
 					position: inherit;
 					width: 100%;
 					list-style-type: none;
-					padding: 1em 0;
+					padding: .65em 0;
 					display: block;
 					a{
 						background-color: transparent;
@@ -44,11 +44,14 @@
     					box-sizing: border-box;
 					}
 				}
-			}
+			}	
 		}
 
 		&.disable {
 			width: 0;
+		}
+		@include media-min($desktop){
+			display: none;
 		}
 	}
 
@@ -217,6 +220,8 @@
 
 	#jobs {
 		background-color: $smooth-gray;
+		border-top: 1px solid $border;
+		border-bottom: 1px solid $border;
 		h1{
 			text-align: center;
 			display: block;
@@ -292,7 +297,7 @@
 				border:none;
 				width: 100%;
 				padding: .9em .4em;
-				border-bottom: 1px solid $smooth-gray;
+				border-bottom: 1px solid $border;
 				margin-bottom: 1.5em;
 				font-size: .8em;
 				font-weight: 300;
@@ -308,10 +313,15 @@
 				color: $light-gray;
 			}
 			textarea{
-				max-width: 100%;
-				border:1px solid $smooth-gray;
-				max-height: 200px;
+				width: 100%;
+				border:1px solid $border;
+				height: 200px;
 				margin-top: 1em;
+				padding: 1em;
+				box-sizing:border-box;
+				&:focus {
+					outline: none;
+				}
 			}
 			.small{
 				font-size: .7em;
